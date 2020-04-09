@@ -1,0 +1,10 @@
+**/__ pycache __/
+**/migrations/
+**.pyc
+**.zip
+**.env
+.vscode/settings.json
+plup/indicators/*
+!plup/indicators/.gitkeep
+!plup/indicators/EvaluateScenario.py
+!plup/indicators/Indicator.py
