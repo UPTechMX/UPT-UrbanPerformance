@@ -81,9 +81,10 @@ To proceed with the installation
 
 ### Create the database structure for the tool
 
-1. execute the command `python manage.py makemigrations plup`
-2. execute the command `python manage.py migrate plup`
-3. start the application with the command `python manage.py runserver 80`
+1. Execute the command `python manage.py makemigrations plup`
+2. Execute the command `python manage.py migrate plup`
+3. Start the application with the command `python manage.py runserver 80`
+4. Finally execute the command `celery -A UP worker --loglevel=error` to start the Celery worker
 
 After following the previous steps, the application should be accesible through port 80. If the server has a firewall, set up the firewall to allow incomming connections to port 80.
 
@@ -102,6 +103,11 @@ For detailed infomation about Djagno please visit [https://www.djangoproject.com
 For detailed infomation about Celery please visit [http://www.celeryproject.org/](http://www.celeryproject.org/)
 
 For detailed infomation about how to use Celery with Django please visit [http://docs.celeryproject.org/en/latest/django/index.html](http://docs.celeryproject.org/en/latest/django/index.html)
+
+## License
+
+- SPDX-License-Identifier: MIT
+- Copyright (c) 2020 CAPSUS S.C.
 
 ## Author Info
 
