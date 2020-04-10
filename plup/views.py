@@ -741,8 +741,8 @@ class assumptionsView(generics.ListCreateAPIView):
                 ,ignore_conflicts=True
             )
             # update all scenarios in same study_are
-            study_area=scenario.objects.filter(scenario_id=request.data["data"][0]["scenario"]).values_list('study_area',flat=True)[:1][0]
-            scenarios=scenario.objects.filter(~Q(scenario_id=request.data["data"][0]["scenario"]),study_area=study_area).values_list('scenario_id',flat=True)
+            study_area=scenario.objects.filter(scenario_id=request.data["data"][0]["scenario"],owner_id=request.data["data"][0]["owner_id"]).values_list('study_area',flat=True)[:1][0]
+            scenarios=scenario.objects.filter(~Q(scenario_id=request.data["data"][0]["scenario"]),study_area=study_area,owner_id=request.data["data"][0]["owner_id"]).values_list('scenario_id',flat=True)
             for scen in scenarios:
                 assumptions.objects.bulk_create(
                     [ assumptions(
