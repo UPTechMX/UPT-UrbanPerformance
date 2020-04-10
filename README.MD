@@ -83,8 +83,11 @@ To proceed with the installation
 
 1. Execute the command `python manage.py makemigrations plup`
 2. Execute the command `python manage.py migrate plup`
-3. Start the application with the command `python manage.py runserver 80`
-4. Finally execute the command `celery -A UP worker --loglevel=error` to start the Celery worker
+
+### Start the application
+
+1. Start the application with the command `python manage.py runserver 80`
+2. Finally execute the command `celery -A UP worker --loglevel=error` to start the Celery worker
 
 After following the previous steps, the application should be accesible through port 80. If the server has a firewall, set up the firewall to allow incomming connections to port 80.
 
@@ -92,7 +95,9 @@ After following the previous steps, the application should be accesible through 
 
 Edit the dictionary `PARALLEL` instantiated in the file `~/UPT-UrbanPerformance/UP/settings` to set the values that best fits the server resources, use the attribute `MAX_THREADS` to set the maximun cores available in the server.
 
-Since the tool does not use any login mechanism, to prevent undesired access to the tool use the variable `ALLOWED_HOSTS` to only allow the UPT Server Extension to access the application. The variable is available in the file `~/UPT-UrbanPerformance/UP/settings`
+Since the tool does not use any login mechanism, to prevent undesired access to the tool use the variable `ALLOWED_HOSTS` to only allow the UPT Server Extension to access the application. The variable is available in the file `~/UPT-UrbanPerformance/UP/settings`.
+
+By default all logs are stored under the directory `/tmp/` of the server, to change the logs location edit the file `~/UPT-UrbanPerformance/plup/logging_config.py` and set the appropiate value `'filename': '/tmp/debug-up.log'`.
 
 It's possible to install the application and the database in different servers. To achieve this, it's necessary to appropriately set up the database connections.
 
