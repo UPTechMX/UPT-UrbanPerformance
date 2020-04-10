@@ -1049,7 +1049,7 @@ class ScenarioEvalView(APIView):
             
             query="""
             with data_buff as(
-                select fclass,st_union(buffer) as buffer from amenities where scenario_id={scenario}
+                select fclass,st_union(buffer) as buffer from roads where scenario_id={scenario}
                 and buffer is not null
                 group by fclass
             )
