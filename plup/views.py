@@ -894,6 +894,7 @@ class ModulesTablesView(APIView):
         import numpy as np
 
         params = urllib.parse.unquote(request.query_params.get('modules'))
+        scenario = urllib.parse.unquote(request.query_params.get('scenario'))
         
         params_list = params[1:-1].replace(" ", "").split(",")
         first_query = Modules.objects.values(
@@ -909,8 +910,21 @@ class ModulesTablesView(APIView):
             for j in i:
                 for table in j["tables"]:
                     tables.append(table)
+
         temp = np.array(tables)
-        return Response(np.unique(temp))
+        tables = []
+        for table in np.unique(temp):
+            if "info" in table:
+                query="""select count({table}_id) from {table}
+                inner join {table}_info using({table}_id)
+                where scenario_id={scenario}""".format(table=table.replace("_info",""),scenario=scenario)
+            else:
+                query="""select count({table}_id) from {table} where scenario_id={scenario}""".format(table=table,scenario=scenario)
+            with connection.cursor() as cursor:
+                cursor.execute(query)
+                rows = [row[0] for row in cursor.fetchall()]
+                tables.append(dict(name=table,value=rows[0]))
+        return Response(np.array(tables))
 
 class ModulesAllTablesView(APIView):
     def get(self, request, *args, **kwargs):
