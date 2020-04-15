@@ -116,7 +116,7 @@ class EvaluateScenario:
                 vacuum(self.indicator.get_uri(),"mmu")
                 db.close()
             db = config.get_db()
-            vacuum(self.indicator.get_uri(),True)
+            vacuum(self.indicator.get_uri(),"mmu",True)
             db.close()
             LogEvents(
                 "All scenarios Finished", 
