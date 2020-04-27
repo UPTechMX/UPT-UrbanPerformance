@@ -7,7 +7,7 @@ import os.path
 # requiered to list files in directory
 import glob
 # required to use partitions in postgresql
-import architect
+#import architect
 from django.conf import settings
 from django.contrib.gis.db import models
 from django.dispatch import receiver
