@@ -114,6 +114,6 @@ For detailed infomation about how to use Celery with Django please visit [http:/
 - SPDX-License-Identifier: MIT
 - Copyright (c) 2020 CAPSUS S.C.
 
-## Author Info
+## Acknowledgements
 
-CAPSUS S.C. Capital Sustentable (CAPSUS) is a mission-oriented consulting firm, based in Mexico City, specialized in sustainability issues in the energy, environmental and urban sectors. Since 2009, the firm has executed projects that promote urban sustainable development both in Mexico and abroad. CAPSUS aims at increasing the performance of our clients by designing and promoting public policies, business practices and social behaviors that facilitate sustainable development, where energy efficiency, environmental protection, social integration, and economic development are paramount. The services offered by CAPSUS are focused on empowering best practices in sustainability through different approaches. A bottom-up approach is taken with urban and environmental management projects and a top-down angle with research, development, and public policy implementation projects. This two-end approach ensures not only the implementation of the projects but also their impact on a bigger scale and the possibility of replication.
+We acknowledge the invaluable support of the [World Bank’s Trust Fund for Statistical Capacity Building](https://worldbank.org/) (TFSCB) in the making this project. This tool was conceptualized at [City Planning Labs](https://collaboration.worldbank.org/content/sites/collaboration-for-development/en/groups/city-planning-labs.html) with the technical support from [SITOWise](https://www.sitowise.com/en). The tools were developed by [CAPSUS](http://capsus.mx/) and are maintained by [UPTech](http://up.technology/) and a community of developers.
