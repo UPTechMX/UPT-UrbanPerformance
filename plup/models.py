@@ -20,8 +20,8 @@ from django.db import connection
 # @architect.install('partition', type='range', subtype='integer', constraint='500000', column='scenario_id')
 class scenario(models.Model):
     scenario_id = models.IntegerField(null=False, primary_key=True)
-    name = models.CharField(max_length=45, null=False)
-    description = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=100, null=False)
+    description = models.CharField(max_length=100, null=False)
     is_base = models.IntegerField(null=True)
     owner_id = models.CharField(max_length=45, null=False)
     study_area = models.IntegerField(null=False)
@@ -62,7 +62,7 @@ class risk(models.Model):
 class risk_info(models.Model):
     
     risk = models.ForeignKey(risk, on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -101,7 +101,7 @@ class roads(models.Model):
 class roads_info(models.Model):
     
     roads = models.ForeignKey(roads, on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -140,7 +140,7 @@ class Amenities(models.Model):
 class Amenities_info(models.Model):
     
     amenities = models.ForeignKey(Amenities, on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -178,7 +178,7 @@ class transit(models.Model):
 class transit_info(models.Model):
     
     transit = models.ForeignKey(transit, on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -212,7 +212,7 @@ class mmu(models.Model):
 class mmu_info(models.Model):
     
     mmu = models.ForeignKey(mmu, on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -249,7 +249,7 @@ class jobs(models.Model):
 class jobs_info(models.Model):
     
     jobs = models.ForeignKey(jobs, on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -287,7 +287,7 @@ class assumptions(models.Model):
     
     scenario = models.ForeignKey(scenario, on_delete=models.CASCADE)
     category = models.CharField(max_length=45, null=False)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=300, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -306,7 +306,7 @@ class Results(models.Model):
     
     scenario = models.ForeignKey(
         scenario, related_name='results', on_delete=models.CASCADE)
-    name = models.CharField(max_length=45, null=False)
+    name = models.CharField(max_length=200, null=False)
     value = models.FloatField(null=False)
 
     class Meta:
@@ -321,7 +321,7 @@ class Results(models.Model):
 class classification(models.Model):
     classification_id = models.AutoField(null=False, primary_key=True)
     category = models.CharField(max_length=45, null=False)
-    name = models.CharField(max_length=100, null=False)
+    name = models.CharField(max_length=200, null=False)
     fclass = fclass = models.CharField(max_length=45, null=True)
 
     class Meta:
