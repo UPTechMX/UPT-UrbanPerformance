@@ -9,7 +9,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'UP.settings')
 app = Celery('UP')
 
 
-broker ="sqla+postgres://" + config('DB_USER') + ":" + config('DB_PASSWORD') + "@" + config('DB_HOST') + ":" + config('DB_PORT') + "/" + config('DB_NAME')
+broker ="sqla+postgresql://" + config('DB_USER') + ":" + config('DB_PASSWORD') + "@" + config('DB_HOST') + ":" + config('DB_PORT') + "/" + config('DB_NAME')
 
 app.config_from_object('django.conf:settings', namespace='CELERY') 
 app.autodiscover_tasks()  
