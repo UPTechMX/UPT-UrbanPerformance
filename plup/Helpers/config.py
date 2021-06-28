@@ -8,7 +8,7 @@ def get_db():
 
 def get_uri():
     from django.db import connection as db
-    return "postgres://"+db.get_connection_params()['user'] +":"+ db.get_connection_params()['password'] +"@"+ db.get_connection_params()['host']+":"+ db.get_connection_params()['port'] +'/'+db.get_connection_params()['database']
+    return "postgresql://"+db.get_connection_params()['user'] +":"+ db.get_connection_params()['password'] +"@"+ db.get_connection_params()['host']+":"+ db.get_connection_params()['port'] +'/'+db.get_connection_params()['database']
 
 
 def get_max_cores():
